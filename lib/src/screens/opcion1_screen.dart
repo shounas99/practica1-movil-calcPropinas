@@ -27,7 +27,6 @@ class _Opcion1ScreenState extends State<Opcion1Screen> {
     //Agrego boton dentro de mi build
     ElevatedButton btnCalcular = ElevatedButton(
       onPressed: () {
-        
         //Validaciones
         if (txtMontoPagar.text.isEmpty ) {
           showDialog <String>(

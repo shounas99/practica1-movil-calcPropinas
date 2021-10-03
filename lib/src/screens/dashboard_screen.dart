@@ -7,10 +7,9 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: 
-        AppBar(
-          title: Text('DASHBOARD'),
-          backgroundColor: ColorSettings.colorPrimary,
+      appBar: AppBar(
+        title: Text('DASHBOARD'),
+        backgroundColor: ColorSettings.colorPrimary,
       ),
       drawer: Drawer(
         child: ListView(
@@ -19,19 +18,28 @@ class DashboardScreen extends StatelessWidget {
               accountName: Text('Cristina Aguilar Rodriguez'),
               accountEmail: Text('17030674@itcelaya.edu.mx'),
               currentAccountPicture: CircleAvatar(
-                backgroundImage: NetworkImage('https://e7.pngegg.com/pngimages/193/660/png-clipart-computer-icons-woman-avatar-avatar-girl-black-hair-logo.png'),
+                backgroundImage: NetworkImage(
+                    'https://e7.pngegg.com/pngimages/193/660/png-clipart-computer-icons-woman-avatar-avatar-girl-black-hair-logo.png'),
                 child: Icon(Icons.verified_user),
               ),
-              decoration: BoxDecoration(
-                color: ColorSettings.colorPrimary
-              ),
+              decoration: BoxDecoration(color: ColorSettings.colorPrimary),
+            ),
+            ListTile(
+              title: Text('Perfil'),
+              subtitle: Text('Perfil de usuario'),
+              leading: Icon(Icons.face),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/profile');
+              },
             ),
             ListTile(
               title: Text('Propinas'),
               subtitle: Text('Se calcula el total a pagar'),
               leading: Icon(Icons.monetization_on),
               trailing: Icon(Icons.chevron_right),
-              onTap: (){
+              onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/opc1');
               },
@@ -41,9 +49,19 @@ class DashboardScreen extends StatelessWidget {
               subtitle: Text('Intenciones implicitas'),
               leading: Icon(Icons.phone_android),
               trailing: Icon(Icons.chevron_right),
-              onTap: (){
+              onTap: () {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/intenciones');
+              },
+            ),
+            ListTile(
+              title: Text('Notas'),
+              subtitle: Text('CRUD Notas'),
+              leading: Icon(Icons.notes),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/notas');
               },
             ),
           ],
