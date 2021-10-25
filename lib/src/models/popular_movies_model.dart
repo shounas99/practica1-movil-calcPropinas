@@ -10,8 +10,10 @@ class PopularMoviesModel {
   String? posterPath;
   String? releaseDate;
   String? title;
-  int? voteAverage;
+  double? voteAverage;
   int? voteCount;
+
+  String? heroId; //Id unico para mi widget Hero
 
   PopularMoviesModel({
     this.backdropPath,
@@ -29,16 +31,18 @@ class PopularMoviesModel {
 
   factory PopularMoviesModel.fromMap(Map<String, dynamic> map) {
     return PopularMoviesModel(
-        backdropPath: map['backdrop_map'],
-        id: map['id'],
+        backdropPath  : map['backdrop_path'] ?? "",
+        id            : map['id'],
         originalLanguage: map['original_language'],
-        originalTitle: map['original_title'],
-        overview: map['overview'],
-        popularity: map['popularity'],
-        posterPath: map['poster_path'],
-        releaseDate: map['release_date'],
-        title: map['title'],
-        voteAverage: map['vote_average'],
-        voteCount: map['vote_count']);
+        originalTitle : map['original_title'],
+        overview      : map['overview'],
+        popularity    : map['popularity'],
+        posterPath    : map['poster_path'] ?? "",
+        releaseDate   : map['release_date'],
+        title         : map['title'],
+        voteAverage   : map['vote_average'] is int
+            ? (map['vote_average'] as int).toDouble()
+            : map['vote_average'],
+        voteCount     : map['vote_count']);
   }
 }

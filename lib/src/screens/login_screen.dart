@@ -49,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
         print(txtEmailCont.text);
         isLoading = true;
         setState(() {});
-          Future.delayed(Duration(seconds: 15),(){
+          Future.delayed(Duration(seconds: 5),(){
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => DashboardScreen())

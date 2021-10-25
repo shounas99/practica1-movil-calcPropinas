@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:practica2/src/models/popular_movies_model.dart';
 
-class ApiPuopular {
+class ApiPopular {
   var URL = Uri.parse(
       'https://api.themoviedb.org/3/movie/popular?api_key=b8c4186f13243344e6e4adcad1631e50&language=es-MX&page=1');
   Future<List<PopularMoviesModel>?> getAllPopular() async {
@@ -12,6 +12,7 @@ class ApiPuopular {
       var popular = jsonDecode(response.body)['results'] as List;
       List<PopularMoviesModel> listPopular =
           popular.map((movie) => PopularMoviesModel.fromMap(movie)).toList();
+      return listPopular;
     } else {
       return null;
     }
